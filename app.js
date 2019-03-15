@@ -12,15 +12,13 @@ fetch(HACKER_NEWS_URL)
   .then(function(response){
     return response.json()
   }).then(function(json){
-    let newsArticlesLI = []
     let date = new Date(json.time)
-    newsArticlesLI.push( `<li>
+    articleUl.insertAdjacentHTML('beforeend', `<li>
             <h4>${json.title}</h4>
             <a href="${json.url}">${json.url}</a>
             <p>By: ${json.by}</p>
             <p>${date}</p>
             </li>`)
-    articleUl.insertAdjacentHTML('beforeend', newsArticlesLI.join(''))
     })
   }
 })
